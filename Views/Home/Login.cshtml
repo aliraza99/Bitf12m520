@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+    <div class="row" id="main-content">
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="navbar-header" id="w" style="background-color:aliceblue; position:relative; align-content:center;">
+                <form action="/Home/signin" method="post">
+                    <fieldset style=" font-size:medium; margin:60px; grid-row-span:inherit ">
+                        <legend style="color:blue">Please SignIn or Login</legend>
+                        <label>
+                           Email:
+                        </label><br />
+
+                        <input type="email" class="input-block-level" placeholder="Enter Email" name="email" required /> <br />
+
+                        <label>
+                            Password :
+                        </label><br />
+                        <input type="password" class="input-block-level" placeholder="Password" name="Password" required />
+
+                        <label class="checkbox">
+                            <input type="checkbox">Remember Me
+                        </label>
+                        <input type="submit" class="btn btn-success" />
+                      
+                        <a href="/Home/SignUp" class="btn btn-info">Sign Up</a>
+                      
+                    </fieldset>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>

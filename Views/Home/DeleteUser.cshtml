@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "DeleteUser";
+}
+
+<html>
+<head>
+    <title>All Users</title>
+</head>
+<body>
+    @foreach (syeds_interior.Models.Login u in @Model)
+    {
+        <div> <h5>@u.email &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp @u.Username &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp @u.Password </h5>  </div>
+        <div><button type="submit" class="btn btn-success">delest</button></div>
+
+    }
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+</body>
+</html>

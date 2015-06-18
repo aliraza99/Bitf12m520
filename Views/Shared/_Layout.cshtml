@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap.js"></script>
+          @Styles.Render("~/Content/css")
+          @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/Home">
+                Syed's Interiors
+            </a>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="navbar-brand navbar-left pull-right" href="/Home">
+                        Home
+                    </a>
+                </li>
+
+               
+                <li>
+                    <a class="navbar-brand" href="/Home/About">
+                        About
+                    </a>
+                </li>
+                @if (Session["user"] == null)
+                {
+                    <li>
+                        <a class="navbar-brand" href="/Home/login">
+                            Login
+                        </a>
+                    </li>
+
+                }
+                else
+                {
+                    <li>
+                        <a class="navbar-brand" href="/Home/logout">
+                            Logout
+                        </a>
+                    </li>
+                }
+                <li>
+                    <a class="navbar-brand" href="/Home/ContactUs">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+
+
+            @RenderSection("Furniture", false)
+            @RenderSection("IndexSec", false)
+
+
+
+
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="left-sidebar" style=" min-height:900px">
+                <h2 class="navbar navbar-inverse" style="color: gray">Items </h2>
+                <div class="panel-group category-products nav nav-pills nav-stacked" id="category">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="/Item/ViewItem">View All</a></h4>
+                        </div>
+                    </div>
+                                
+                                    
+                                    <h2 class="navbar navbar-inverse" style="color: gray">Categories</h2>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title"><a href="~/Item/Furnitures">Furnitures</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title"><a href="~/Item/Lights">Lights</a></h4>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title"><a href="~/Item/Carpets">Carpets</a></h4>
+                                        </div>
+                                    </div>
+                    <h2 class="navbar navbar-inverse" style="color:gray">My Profile</h2>
+                    @if (Session["user"] != null)
+                    {
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                  
+                            <h4 class="panel-title"><a href="~/Home/ShowProfile">View Profile</a></h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="~/Item/MyCart">My Cart</a></h4>
+                        </div>
+                    </div>
+                         <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="~/Item/MyWishList">My Wishlist</a></h4>
+                        </div>
+                    </div>
+                    }
+                    
+                    
+                                @*</div>
+                            </div>
+                        </div>
+                    </div>*@
+
+                   
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">@RenderBody()</div>
+    </div>
+    <!-- <div class="left">
+          <div class="col-sm-4">
+              this is
+
+          </div>
+      </div>-->
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <br />
+    <br />
+    <br />
+    <footer>
+            <div class="navbar navbar-fixed-bottom" style="background-color:black">
+                <p style="font-style : oblique ; color:white" ><center style="color:gray; font-size:18px; font-weight:600">  Syed's : A Name of Trust && Quality </center></p>
+            </div>
+    </footer>
+</body>
+</html>

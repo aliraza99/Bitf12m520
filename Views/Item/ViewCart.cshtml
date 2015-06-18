@@ -1,0 +1,45 @@
+﻿@{
+     
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<syeds_interior.Models.Cart>
+           @using syeds_interior.Models;
+<body>
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+
+
+
+    @foreach (Cart u in Model)
+    {
+
+        <div class="col-xs-3 text-center">
+
+            <img src="/images/@u.img" width="200" height="200" />
+
+            <h4> Item Name : @u.prodname </h4>
+
+            <h4>Current Price : @u.price</h4>
+
+            <h4>Quantity : @u.qunatity</h4>
+
+            <h4>Total : @u.Total</h4>
+            @if(u.Type.Equals("Cart"))
+            { 
+            <h4> @Html.ActionLink("Remove", "../Item/RemoveCart", new { id = u.Id })</h4>
+            }
+            @if(u.Type.Equals("Wish"))
+            { 
+            <h4> @Html.ActionLink("Remove", "../Item/RemoveWishList", new { id = u.Id })</h4>
+            }
+            <br />
+
+        </div>
+    }
+</body>

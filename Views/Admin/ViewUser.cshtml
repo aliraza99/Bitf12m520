@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewAllUsers</title>
+</head>
+@model IEnumerable<syeds_interior.Models.Login>
+<body>
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+    <div>
+        
+        @{
+            ViewBag.Title = "ViewAllUsers";
+        }
+         <h2 style="font-family:'Agency FB';color:burlywood;font-size:xx-large;"><a href="/Home/Signup">Add new User</a></h2>
+        <table cellpadding="20" border="1" width="50%">
+            <tr style="font-size:medium;">
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Email
+                </th>
+            </tr>
+            @foreach (var user in Model)
+    {
+                <tr>
+                    <td>
+                        <h5>@Html.DisplayFor(modelItem => user.Id)</h5> 
+                    </td>
+                    <td>
+                      <h5>@Html.DisplayFor(modelItem => user.Username)</h5>  
+                    </td>
+                    <td>
+                        <h5>@Html.DisplayFor(modelItem => user.email)</h5>
+                    </td>
+                    
+
+                    <td style="font-size:medium;">
+                        @Html.ActionLink("Edit", "UpdateUser", new { id = user.Id }) |
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })
+                    </td>
+                </tr>
+    }
+        </table>
+    </div>
+</body>

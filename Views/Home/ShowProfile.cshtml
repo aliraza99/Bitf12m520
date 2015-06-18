@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "ShowProfile";
+}
+
+@model syeds_interior.Models.Login
+<body>
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+    @*@foreach (syeds_interior.Models.Login u in Model)
+    {*@
+
+        <div class="col-xs-3 text-center">
+
+            <h4> Name : @Model.Username </h4>
+
+            <h4>Password : @Model.Password</h4>
+                    <h4> @Html.ActionLink("Edit", "../Home/ViewProfile", new { id = Model.Id }) </h4>
+            
+
+        </div>
+
+    @*}*@
+
+
+</body>

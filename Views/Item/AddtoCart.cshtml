@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model syeds_interior.Models.Item
+<h3> @ViewBag.error</h3>
+<body>
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+    
+        <div class="col-sm-3 text-center">
+            <div class="text-center">
+                <img src="/images/@Model.img" width="200" height="200" />
+                 <h4> Name : @Model.Name</h4>
+                <h4> Price : @Model.Price</h4>
+               
+                   <form action="/Item/ConfimCart?id=@Model.Id" method="post">
+                       <h4>
+                           Quantity:
+                           <span><input type="text" name="quantity" /></span>
+                           
+                       </h4>
+                       <input type="submit" />
+                @*<h4> <a href="/Item/ConfimCart?id=@Model.Id" class="btn btn-default" >add</a></h4>*@ 
+                </form>
+            </div>
+            </div>
+            
+
+                @*<li></li>
+                <li><input type="hidden" value="@Model.Id" /></li>
+
+                <li><h5>@Model.Description</h5></li>
+                <li><h5></h5></li>
+                Quantity:
+                <li><input type="text" name="quantity" value="@Model.Quantity" /></li>
+                <li><input value="Add to cart" type="submit" /> > </li>
+            </ul>*@
+
+
+</body>

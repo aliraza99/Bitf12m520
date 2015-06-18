@@ -1,0 +1,74 @@
+﻿@{
+    if (Session["user"] != null)
+    {
+        if (Session["user"].Equals("Admin"))
+        {
+            Layout = "~/Views/Shared/_Admin.cshtml";
+
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+}
+
+<html>
+
+<head>
+    <title>Contact</title>
+    <script src="~/Content/bootstrap.js"></script>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+<section class="">
+    <header>
+        <h3>Phone</h3>
+    </header>
+    <p>
+        <span class="label">Office:</span>
+        <span><strong>0423868874</strong></span>
+    </p>
+    <p>
+        <span class="label">Mobile:</span>
+        <span>0320-2374834</span>
+    </p>
+</section>
+
+<section class="contact">
+    <header>
+        <h3>Email</h3>
+    </header>
+    <p>
+        <span class="label">Support:</span>
+        <span><a href="mailto:hadisyed55@yahoo.com">hadisyed55@yahoo.com</a></span>
+    </p>
+
+    <p>
+        <span class="label">General:</span>
+        <span><a href="mailto:aliraza99@gmail.com">aliraza99@gmail.com</a></span>
+    </p>
+</section>
+
+<section class="contact">
+    <header>
+        <h3>Address</h3>
+    </header>
+    <p>
+        23-Muslimabad fatehghar<br />
+        main Canal bank road Lahore
+    </p>
+</section>
+    </body>
+
+</html>

@@ -1,0 +1,45 @@
+﻿@{
+    if (Session["user"] != null)
+    {
+        if (Session["user"].Equals("Admin"))
+        {
+            Layout = "~/Views/Shared/_Admin.cshtml";
+
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Content/bootstrap.js"></script>
+<head><title>about</title></head>
+<body>
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+    <div style="width:70%; margin-left:15%; margin-top:5%;">
+        <h2 style="margin-top: 5%; margin-bottom: 5%;" class="text-center">Syed's Interiors</h2>
+
+        <div class="row">
+            <h3 style="margin-left:3%">Ali Raza(CEO)</h3>
+            <p style="margin-left:2%" class="col-lg-7">
+                Syed's Interior was established in 1987 with the aim to provide our dear customers with the best Interior designs.
+                <br>
+                The CEO finds this very pleasant to decorate the house of people in the moderate range.
+                <br>
+                Our experts are keen to help people to discuss their ideas and make it usefull according to their requirements. :)
+                </p>
+            <img class="col-lg-3 img-rounded" src="~/Content/images/ali.jpg" style="width:230px; height:200px" />
+        </div>
+
+    </div>
+</body>
+

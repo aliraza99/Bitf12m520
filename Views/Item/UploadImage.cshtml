@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+@Model syeds_interior.Models.Items
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UploadImage</title>
+</head>
+<body>
+    
+    <div>
+        @using (Html.BeginForm("UploadImage", "Item", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div>
+                <input type="file" id="file" style="width:100%" /><br />
+                <input type="submit" value="Upload" class="submit" />
+            </div>
+        }
+    </div>
+</body>
+

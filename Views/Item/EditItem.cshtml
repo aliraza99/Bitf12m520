@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@model syeds_interior.Models.Item
+<body>
+@section IndexSec{
+    <form class="navbar-form navbar-left pull-right" action="/Home/Search" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" name="search" placeholder="search" />
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+}
+
+@Html.BeginForm("UpdateItemDetail","Item" , FormMethod.Post)
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset style="font-size:medium;">
+
+        <legend>Edit Item</legend>
+        @Html.HiddenFor(model => model.Id)
+        <table style="width:100%">
+            <tr>
+                <td>Name</td>
+                <td>
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    @Html.EditorFor(model => model.Price)
+                    @Html.ValidationMessageFor(model => model.Price)
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>Description</td>
+                <td>
+                    @Html.EditorFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description)
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" id="btnUpdate" name="Command" value="Update" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                        <span class="ui-button-text">Update</span>
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+}
+</body>

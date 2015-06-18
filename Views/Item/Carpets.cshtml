@@ -1,0 +1,64 @@
+﻿@{
+    if (Session["user"] != null)
+    {
+        if (Session["user"].Equals("Admin"))
+        {
+            Layout = "~/Views/Shared/_Admin.cshtml";
+
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    }
+
+<body>
+    @*@@section Furniture{*@
+    @section IndexSec{
+        <form class="navbar-form navbar-left pull-right" action="/Item/FurnitureSearch" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" name="search" placeholder="search" />
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    }
+
+
+
+    <div class="row">
+
+        @foreach (syeds_interior.Models.Item u in Model)
+        {
+
+            <div class="col-xs-3 text-center">
+
+                <img src="/images/@u.img" width="200" height="200" />
+
+                        <h4> Item Name : @u.Name </h4>
+
+
+                        <h4>Current Price : @u.Price</h4>
+                <h4>Quantity : @u.Quantity</h4>   
+                <h4>Description : @u.Description</h4>
+                @if (Session["user"] != null)
+                {
+                    if (Session["user"].Equals("User"))
+                    {
+                        <h4> @Html.ActionLink("Add to Cart", "../Item/AddtoCart", new { id = u.Id }) </h4>
+                   <h4> @Html.ActionLink("Add to WishList", "../Item/AddtoWishList", new { id = u.Id }) </h4>
+                     }
+                    if (Session["user"].Equals("Admin"))
+                    {
+
+
+                        <h4> @Html.ActionLink("Edit", "../Item/EditItem", new { id = u.Id }) | @Html.ActionLink("Remove", "../Item/RemoveItem", new { id = u.Id })</h4>
+                        @*<h4>@Html.ActionLink("Remove", "RemoveItem", new { id = u.Id })</h4>*@
+                    }
+                }
+            </div>
+        }
+    </div>
+</body>
+

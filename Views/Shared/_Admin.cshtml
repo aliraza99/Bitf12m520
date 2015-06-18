@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/Admin/Index">
+                Syed's Interiors
+            </a>
+            <ul class="nav navbar-nav navbar-right">
+                @*<li>
+                    <a class="navbar-brand navbar-left pull-right" href="/Item/AddItem">
+                        Add Item
+                    </a>
+                </li>
+
+                <li>
+                    <a class="navbar-brand navbar-left pull-right" href="/Item/ViewItem">
+                        View Items
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-brand navbar-left pull-right" href="/Home/Signup">
+                        Add User
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-brand navbar-left pull-right" href="/Admin/ViewUser">
+                        View Users
+                    </a>
+                </li>*@
+                @if (Session["user"] == null)
+                    {
+                        <li>
+                            <a class="navbar-brand" href="/Home/login">
+                                Login
+                            </a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="navbar-brand" href="/Home/logout">
+                                Logout
+                            </a>
+                        </li>
+                    }
+                <li>
+                    <a class="navbar-brand" href="/Home/About">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a class="navbar-brand" href="/Home/ContactUs">
+                        Contact Us
+                    </a>
+                </li>
+                <li>
+
+                    @RenderSection("IndexSec", false)
+                </li>
+</ul>
+            @*<form class="navbar-form navbar-left pull-right " role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="search" />
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>*@
+        </div>
+    </nav>
+    
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="left-sidebar">
+                <h2 class="navbar navbar-inverse" style="color: gray">Items Menu</h2>
+                <div class="panel-group category-products nav nav-pills nav-stacked" id="category">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="/Item/ViewItem">View All Items</a></h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="/Item/AddItem">Add Item</a></h4>
+                        </div>
+                    </div>
+                    <h2 class="navbar navbar-inverse" style="color: gray">Categories</h2>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="~//Item/Furnitures">Furnitures</a></h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="~/Item/Lights">Lights</a></h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="~/Item/Carpets">Carpets</a></h4>
+                        </div>
+                    </div>
+
+                    <h2 class="navbar navbar-inverse" style="color: gray">Users Menu</h2>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                            <h4 class="panel-title"><a href="/Admin/ViewUser">View User</a></h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="/Home/Signup">Add Users</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+
+
+        @RenderBody()
+        
+    </div>
+
+    
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <br />
+    <br />
+    <br />
+    <footer>
+        <div class="navbar navbar-fixed-bottom" style="background-color:black">
+            <p style="font-style : oblique ; color:white"><center style="color:gray; font-size:18px; font-weight:600">  Syed's : A Name of Trust && Quality </center></p>
+        </div>
+    </footer>
+</body>
+</html>
